@@ -10,10 +10,10 @@
 # name of the wiki
 wikiname: Shared Resources
 # contact email for wiki
-adminemail: admins-2020@branchable.com
+adminemail: 0xloem@gmail.com
 # users who are wiki admins
 adminuser:
-- http://none/
+- 0xloem@gmail.com
 # users who are banned from the wiki
 banned_users: []
 # where the source of the wiki is located
@@ -148,7 +148,7 @@ branchable: 1
 # Allow anyone to git push verified changes to this site?
 #anonpush: 0
 # Display "Branchable" link on action bar?
-#branchable_action: 1
+branchable_action: 1
 
 # git plugin
 # git hook to generate
@@ -167,9 +167,9 @@ historyurl: http://source.sharedresources.branchable.com/?p=source.git;a=history
 # gitweb url to show a diff ([[file]], [[sha1_to]], [[sha1_from]], [[sha1_commit]], and [[sha1_parent]] substituted)
 diffurl: http://source.sharedresources.branchable.com/?p=source.git;a=blobdiff;f=[[file]];h=[[sha1_to]];hp=[[sha1_from]];hb=[[sha1_commit]];hpb=[[sha1_parent]]
 # where to pull and push changes (set to empty string to disable)
-#gitorigin_branch: origin
+gitorigin_branch: origin
 # branch that the wiki is stored in
-#gitmaster_branch: master
+gitmaster_branch: master
 
 # gitpush plugin
 # git repository urls that changes are pushed to
@@ -193,9 +193,9 @@ created: 1584204989
 # how many days to retain logs
 #log_period: 7
 # disable IPv6?
-#ipv6_disabled: 1
+ipv6_disabled: 0
 # redirect from http to https?
-#redirect_to_https: 1
+redirect_to_https: 0
 # use Lets Encrypt to generate https certificate?
 #use_letsencrypt: 1
 
@@ -209,7 +209,7 @@ atom: 1
 # allow atom feeds to be used?
 #allowatom: 0
 # urls to ping (using XML-RPC) on feed update
-#pingurl: http://rpc.technorati.com/rpc/ping
+pingurl: []
 
 ######################################################################
 # auth plugins
@@ -269,9 +269,9 @@ openid_cgiurl: http://sharedresources.branchable.com/ikiwiki.cgi
 # types of source files to syntax highlight
 #tohighlight: .c .h .cpp .pl .py Makefile:make
 # location of highlight's filetypes.conf
-#filetypes_conf: /etc/highlight/filetypes.conf
+filetypes_conf: /etc/highlight/filetypes.conf
 # location of highlight's langDefs directory
-#langdefdir: /usr/share/highlight/langDefs
+langdefdir: /usr/share/highlight/langDefs
 
 # mdwn plugin
 # enable multimarkdown features?
@@ -279,9 +279,9 @@ openid_cgiurl: http://sharedresources.branchable.com/ikiwiki.cgi
 # disable use of markdown discount?
 #nodiscount: 0
 # enable footnotes in Markdown (where supported)?
-#mdwn_footnotes: 1
+mdwn_footnotes: 1
 # interpret line like 'A. First item' as ordered list when using Discount?
-#mdwn_alpha_lists: 0
+mdwn_alpha_lists: 0
 
 # po plugin
 # master language (non-PO files)
@@ -342,17 +342,17 @@ virus_checker: clamdscan -
 # PageSpec of pages where comments are allowed
 comments_pagespec: posts/* and !*/Discussion
 # PageSpec of pages where posting new comments is not allowed
-#comments_closed_pagespec: blog/controversial or blog/flamewar
+comments_closed_pagespec: ''
 # Base name for comments, e.g. "comment_" for pages like "sandbox/comment_12"
-#comments_pagename: ''
+comments_pagename: comment_
 # Interpret directives in comments?
 #comments_allowdirectives: 0
 # Allow anonymous commenters to set an author name?
 #comments_allowauthor: 0
 # commit comments to the VCS
-#comments_commit: 1
+comments_commit: 1
 # Restrict formats for comments to (no restriction if empty)
-#comments_allowformats: mdwn txt
+comments_allowformats: ''
 
 # getsource plugin
 # Mime type for returned source.
@@ -366,18 +366,19 @@ comments_pagespec: posts/* and !*/Discussion
 
 # repolist plugin
 # URIs of repositories containing the wiki's source
-#repositories:
-#- svn://svn.example.org/wiki/trunk
+repositories:
+- ssh://b-sharedresources@sharedresources.branchable.com/
+- git://sharedresources.branchable.com/
 
 # search plugin
 # path to the omega cgi program
-#omega_cgi: /usr/lib/cgi-bin/omega/omega
+omega_cgi: /usr/lib/cgi-bin/omega/omega
 # use google site search rather than internal xapian index?
 google_search: 1
 
 # theme plugin
 # name of theme to enable
-#theme: actiontabs
+theme: actiontabs
 
 # websetup plugin
 # list of plugins that cannot be enabled/disabled via the web interface
@@ -416,9 +417,9 @@ archivebase: archives
 # PageSpec of pages to include in the archives, if option `calendar_autocreate` is true.
 archive_pagespec: page(posts/*) and !*/Discussion
 # autocreate new calendar pages?
-#calendar_autocreate: 1
+calendar_autocreate: 1
 # if set, when building calendar pages, also build pages of year and month when no pages were published (building empty calendars).
-#calendar_fill_gaps: 1
+calendar_fill_gaps: 1
 
 # img plugin
 # Image formats to process (jpeg, png, gif, svg, pdf or 'everything' to accept all)
@@ -426,7 +427,7 @@ archive_pagespec: page(posts/*) and !*/Discussion
 
 # listdirectives plugin
 # directory in srcdir that contains directive descriptions
-#directive_description_dir: ikiwiki/directive
+directive_description_dir: ikiwiki/directive
 
 # teximg plugin
 # Should teximg use dvipng to render, or dvips and convert?
@@ -485,9 +486,9 @@ archive_pagespec: page(posts/*) and !*/Discussion
 
 # recentchanges plugin
 # name of the recentchanges page
-#recentchangespage: recentchanges
+recentchangespage: recentchanges
 # number of changes to track
-#recentchangesnum: 100
+recentchangesnum: 100
 
 # rsync plugin
 # command to run to sync updated pages
@@ -503,7 +504,7 @@ tagbase: tags
 # autocreate new tag pages?
 #tag_autocreate: 1
 # commit autocreated tag pages
-#tag_autocreate_commit: 1
+tag_autocreate_commit: 1
 
 # typography plugin
 # Text::Typography attributes value
