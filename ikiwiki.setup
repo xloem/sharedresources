@@ -14,6 +14,8 @@ adminemail: 0xloem@gmail.com
 # users who are wiki admins
 adminuser:
 - 0xloem@gmail.com
+- community
+- xloem
 # users who are banned from the wiki
 banned_users: []
 # where the source of the wiki is located
@@ -67,6 +69,13 @@ add_plugins:
 - testpagespec
 - version
 - theme
+- osm
+- html
+- opendiscussion
+- gitpush
+- po
+- txt
+- anonok
 # plugins to disable
 disable_plugins: []
 # additional directory to search for template files
@@ -84,11 +93,11 @@ prefix_directives: 1
 # use page/index.mdwn source files
 indexpages: 0
 # enable Discussion pages?
-discussion: 0
+discussion: 1
 # name of Discussion pages
 discussionpage: Discussion
 # use elements new in HTML5 like <section>?
-html5: 0
+html5: 1
 # only send cookies over SSL connections?
 sslcookie: 0
 # extension to use for new pages
@@ -100,7 +109,7 @@ timeformat: '%c'
 # UTF-8 locale to use
 #locale: en_US.UTF-8
 # put user pages below specified page
-userdir: ''
+userdir: users
 # how many backlinks to show before hiding excess (0 to show all)
 numbacklinks: 10
 # attempt to hardlink source files? (optimisation for large files)
@@ -114,8 +123,7 @@ libdirs: []
 # extra library and plugin directory (searched after libdirs)
 libdir: /home/b-sharedresources/.ikiwiki
 # environment variables
-ENV:
-  TMPDIR: /home/b-sharedresources/tmp
+#ENV: ''
 # time zone name
 timezone: GMT
 # regexp of normally excluded files to include
@@ -146,7 +154,7 @@ deterministic: 0
 # Allow anyone to branch, check out, and copy this site?
 branchable: 1
 # Allow anyone to git push verified changes to this site?
-#anonpush: 0
+anonpush: 1
 # Display "Branchable" link on action bar?
 branchable_action: 1
 
@@ -173,7 +181,8 @@ gitmaster_branch: master
 
 # gitpush plugin
 # git repository urls that changes are pushed to
-#git_push_to: []
+git_push_to:
+- git@github.com:xloem/sharedresources.git
 
 # htmlscrubber plugin
 # PageSpec specifying pages not to scrub
@@ -191,13 +200,13 @@ hostname: sharedresources.branchable.com
 # site creation datestamp
 created: 1584204989
 # how many days to retain logs
-#log_period: 7
+log_period: 16777216
 # disable IPv6?
 ipv6_disabled: 0
 # redirect from http to https?
-redirect_to_https: 0
+redirect_to_https: 1
 # use Lets Encrypt to generate https certificate?
-#use_letsencrypt: 1
+use_letsencrypt: 1
 
 # inline plugin
 # enable rss feeds by default?
@@ -205,9 +214,9 @@ rss: 1
 # enable atom feeds by default?
 atom: 1
 # allow rss feeds to be used?
-#allowrss: 0
+allowrss: 1
 # allow atom feeds to be used?
-#allowatom: 0
+allowatom: 1
 # urls to ping (using XML-RPC) on feed update
 pingurl: []
 
@@ -275,7 +284,7 @@ langdefdir: /usr/share/highlight/langDefs
 
 # mdwn plugin
 # enable multimarkdown features?
-#multimarkdown: 0
+multimarkdown: 1
 # disable use of markdown discount?
 #nodiscount: 0
 # enable footnotes in Markdown (where supported)?
@@ -285,16 +294,16 @@ mdwn_alpha_lists: 0
 
 # po plugin
 # master language (non-PO files)
-#po_master_language: en|English
+po_master_language: en|English
 # slave languages (translated via PO files) format: ll|Langname
 #po_slave_languages:
 #- fr|FranÃ§ais
 #- es|EspaÃ±ol
 #- de|Deutsch
 # PageSpec controlling which pages are translatable
-#po_translatable_pages: '* and !*/Discussion'
+po_translatable_pages: ''
 # internal linking behavior (default/current/negotiated)
-#po_link_to: current
+po_link_to: default
 
 ######################################################################
 # special-purpose plugins
@@ -327,8 +336,8 @@ mdwn_alpha_lists: 0
 
 ######################################################################
 # web plugins
-#   (404, attachment, comments, editdiff, edittemplate, getsource, google,
-#    goto, mirrorlist, remove, rename, repolist, search, theme, userlist,
+#   (404, attachment, comments, editdiff, edittemplate, google, goto,
+#    mirrorlist, remove, rename, repolist, search, theme, userlist,
 #    websetup, wmd)
 ######################################################################
 
@@ -353,10 +362,6 @@ comments_pagename: comment_
 comments_commit: 1
 # Restrict formats for comments to (no restriction if empty)
 comments_allowformats: ''
-
-# getsource plugin
-# Mime type for returned source.
-#getsource_mimetype: text/plain; charset=utf-8
 
 # mirrorlist plugin
 # list of mirrors
@@ -456,13 +461,13 @@ directive_description_dir: ikiwiki/directive
 
 # aggregate plugin
 # enable aggregation to internal pages?
-#aggregateinternal: 1
+aggregateinternal: 1
 # allow aggregation to be triggered via the web?
 #aggregate_webtrigger: 0
 
 # autoindex plugin
 # commit autocreated index pages
-#autoindex_commit: 1
+autoindex_commit: 1
 
 # camelcase plugin
 # list of words to not turn into links
@@ -482,7 +487,7 @@ directive_description_dir: ikiwiki/directive
 
 # prettydate plugin
 # format to use to display date
-#prettydateformat: '%X, %B %o, %Y'
+prettydateformat: '%X, %B %o, %Y'
 
 # recentchanges plugin
 # name of the recentchanges page
